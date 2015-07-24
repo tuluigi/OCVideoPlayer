@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		098ABFB9D8B20D9F48868F44 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5C665669400E96B1EF2645 /* libPods.a */; };
 		2A2AB0E31B57B89200E9A563 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2AB0E21B57B89200E9A563 /* main.m */; };
 		2A2AB0E61B57B89200E9A563 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2AB0E51B57B89200E9A563 /* AppDelegate.m */; };
 		2A2AB0E91B57B89200E9A563 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2AB0E81B57B89200E9A563 /* ViewController.m */; };
@@ -14,6 +15,13 @@
 		2A2AB0EE1B57B89200E9A563 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A2AB0ED1B57B89200E9A563 /* Images.xcassets */; };
 		2A2AB0F11B57B89200E9A563 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A2AB0EF1B57B89200E9A563 /* LaunchScreen.xib */; };
 		2A2AB0FD1B57B89200E9A563 /* OCVideoPlayerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2AB0FC1B57B89200E9A563 /* OCVideoPlayerDemoTests.m */; };
+		2A2AB1071B57B8A200E9A563 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2AB1061B57B8A200E9A563 /* MediaPlayer.framework */; };
+		2A2AB10A1B57B99300E9A563 /* OCVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2AB1091B57B99300E9A563 /* OCVideoPlayer.m */; };
+		2A3B8C5E1B5E64A400111B72 /* OCVideoPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3B8C5D1B5E64A400111B72 /* OCVideoPlayerControlView.m */; };
+		2A3B8C611B5F49C400111B72 /* OCVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3B8C601B5F49C400111B72 /* OCVideoPlayerView.m */; };
+		2A3B8C631B5F7B5B00111B72 /* OCPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A3B8C621B5F7B5B00111B72 /* OCPlayer.bundle */; };
+		2A3B8C661B5F7BC300111B72 /* UIImage+OCVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3B8C651B5F7BC300111B72 /* UIImage+OCVideoPlayer.m */; };
+		2A3B8C691B5F7E9700111B72 /* NSString+OCPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3B8C681B5F7E9700111B72 /* NSString+OCPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28DC89C599984B4DFF6777F3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2A2AB0DD1B57B89200E9A563 /* OCVideoPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCVideoPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A2AB0E11B57B89200E9A563 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A2AB0E21B57B89200E9A563 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +49,21 @@
 		2A2AB0F61B57B89200E9A563 /* OCVideoPlayerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCVideoPlayerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A2AB0FB1B57B89200E9A563 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A2AB0FC1B57B89200E9A563 /* OCVideoPlayerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCVideoPlayerDemoTests.m; sourceTree = "<group>"; };
+		2A2AB1061B57B8A200E9A563 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		2A2AB1081B57B99300E9A563 /* OCVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideoPlayer.h; sourceTree = "<group>"; };
+		2A2AB1091B57B99300E9A563 /* OCVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideoPlayer.m; sourceTree = "<group>"; };
+		2A3B8C5C1B5E64A400111B72 /* OCVideoPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideoPlayerControlView.h; sourceTree = "<group>"; };
+		2A3B8C5D1B5E64A400111B72 /* OCVideoPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideoPlayerControlView.m; sourceTree = "<group>"; };
+		2A3B8C5F1B5F49C400111B72 /* OCVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideoPlayerView.h; sourceTree = "<group>"; };
+		2A3B8C601B5F49C400111B72 /* OCVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideoPlayerView.m; sourceTree = "<group>"; };
+		2A3B8C621B5F7B5B00111B72 /* OCPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = OCPlayer.bundle; sourceTree = "<group>"; };
+		2A3B8C641B5F7BC300111B72 /* UIImage+OCVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OCVideoPlayer.h"; sourceTree = "<group>"; };
+		2A3B8C651B5F7BC300111B72 /* UIImage+OCVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+OCVideoPlayer.m"; sourceTree = "<group>"; };
+		2A3B8C671B5F7E9700111B72 /* NSString+OCPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OCPlayer.h"; sourceTree = "<group>"; };
+		2A3B8C681B5F7E9700111B72 /* NSString+OCPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OCPlayer.m"; sourceTree = "<group>"; };
+		2A3B8C6A1B5F914100111B72 /* OCVidePlayerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVidePlayerKit.h; sourceTree = "<group>"; };
+		2F5C665669400E96B1EF2645 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A17F123BADBCF592CAFD97B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A2AB1071B57B8A200E9A563 /* MediaPlayer.framework in Frameworks */,
+				098ABFB9D8B20D9F48868F44 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,9 +89,12 @@
 		2A2AB0D41B57B89200E9A563 = {
 			isa = PBXGroup;
 			children = (
+				2A2AB1061B57B8A200E9A563 /* MediaPlayer.framework */,
 				2A2AB0DF1B57B89200E9A563 /* OCVideoPlayerDemo */,
 				2A2AB0F91B57B89200E9A563 /* OCVideoPlayerDemoTests */,
 				2A2AB0DE1B57B89200E9A563 /* Products */,
+				F7E635B0DB9649C2AF9E6B30 /* Pods */,
+				FFB8938649DAD57B6BA2DB2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +118,18 @@
 				2A2AB0ED1B57B89200E9A563 /* Images.xcassets */,
 				2A2AB0EF1B57B89200E9A563 /* LaunchScreen.xib */,
 				2A2AB0E01B57B89200E9A563 /* Supporting Files */,
+				2A2AB1081B57B99300E9A563 /* OCVideoPlayer.h */,
+				2A2AB1091B57B99300E9A563 /* OCVideoPlayer.m */,
+				2A3B8C5C1B5E64A400111B72 /* OCVideoPlayerControlView.h */,
+				2A3B8C5D1B5E64A400111B72 /* OCVideoPlayerControlView.m */,
+				2A3B8C5F1B5F49C400111B72 /* OCVideoPlayerView.h */,
+				2A3B8C601B5F49C400111B72 /* OCVideoPlayerView.m */,
+				2A3B8C621B5F7B5B00111B72 /* OCPlayer.bundle */,
+				2A3B8C641B5F7BC300111B72 /* UIImage+OCVideoPlayer.h */,
+				2A3B8C651B5F7BC300111B72 /* UIImage+OCVideoPlayer.m */,
+				2A3B8C671B5F7E9700111B72 /* NSString+OCPlayer.h */,
+				2A3B8C681B5F7E9700111B72 /* NSString+OCPlayer.m */,
+				2A3B8C6A1B5F914100111B72 /* OCVidePlayerKit.h */,
 			);
 			path = OCVideoPlayerDemo;
 			sourceTree = "<group>";
@@ -119,6 +160,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F7E635B0DB9649C2AF9E6B30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28DC89C599984B4DFF6777F3 /* Pods.debug.xcconfig */,
+				3A17F123BADBCF592CAFD97B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FFB8938649DAD57B6BA2DB2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F5C665669400E96B1EF2645 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +184,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A2AB1001B57B89200E9A563 /* Build configuration list for PBXNativeTarget "OCVideoPlayerDemo" */;
 			buildPhases = (
+				E5A58E4AD8643089A04FCF3F /* Check Pods Manifest.lock */,
 				2A2AB0D91B57B89200E9A563 /* Sources */,
 				2A2AB0DA1B57B89200E9A563 /* Frameworks */,
 				2A2AB0DB1B57B89200E9A563 /* Resources */,
+				EFA8FD538D4CA72838E295F1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -201,6 +261,7 @@
 			files = (
 				2A2AB0EC1B57B89200E9A563 /* Main.storyboard in Resources */,
 				2A2AB0F11B57B89200E9A563 /* LaunchScreen.xib in Resources */,
+				2A3B8C631B5F7B5B00111B72 /* OCPlayer.bundle in Resources */,
 				2A2AB0EE1B57B89200E9A563 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,13 +275,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E5A58E4AD8643089A04FCF3F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EFA8FD538D4CA72838E295F1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2A2AB0D91B57B89200E9A563 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A3B8C691B5F7E9700111B72 /* NSString+OCPlayer.m in Sources */,
+				2A2AB10A1B57B99300E9A563 /* OCVideoPlayer.m in Sources */,
+				2A3B8C611B5F49C400111B72 /* OCVideoPlayerView.m in Sources */,
 				2A2AB0E91B57B89200E9A563 /* ViewController.m in Sources */,
+				2A3B8C5E1B5E64A400111B72 /* OCVideoPlayerControlView.m in Sources */,
 				2A2AB0E61B57B89200E9A563 /* AppDelegate.m in Sources */,
+				2A3B8C661B5F7BC300111B72 /* UIImage+OCVideoPlayer.m in Sources */,
 				2A2AB0E31B57B89200E9A563 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +444,7 @@
 		};
 		2A2AB1011B57B89200E9A563 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28DC89C599984B4DFF6777F3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OCVideoPlayerDemo/Info.plist;
@@ -355,6 +455,7 @@
 		};
 		2A2AB1021B57B89200E9A563 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A17F123BADBCF592CAFD97B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OCVideoPlayerDemo/Info.plist;
@@ -416,6 +517,7 @@
 				2A2AB1021B57B89200E9A563 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A2AB1031B57B89200E9A563 /* Build configuration list for PBXNativeTarget "OCVideoPlayerDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +526,7 @@
 				2A2AB1051B57B89200E9A563 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
