@@ -31,9 +31,9 @@ UIKIT_EXTERN NSString * const OCVidePlayerThumbnailImageKey ;
 
 @interface OCVideoPlayerControlView : UIView
 
+@property(nonatomic,weak)id<OCVideoControlEventDelegate>controlDelegate;
+
 @property(nonatomic,weak)id<OCVideoPlayerControlViewDelegate>delegate;
-
-
 
 #pragma mark -Title
 @property(nonatomic,copy)NSString *title;

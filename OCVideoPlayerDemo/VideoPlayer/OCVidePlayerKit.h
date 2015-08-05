@@ -49,4 +49,8 @@ extern NSString * const OCVideoPlayerStateKey;
 extern NSString * const OCVideoPlayerQueueItemsCountKey;
 extern NSString * const OCVideoPlayerErrorKey;
 
+
+@protocol OCVideoControlEventDelegate <NSObject>
+-(void)didOcVideoPlayerHandleActionWithControlEvent:(OCVideoPlayerControlEvent)event userInfo:(NSDictionary *)userInfo;
+@end
 #endif

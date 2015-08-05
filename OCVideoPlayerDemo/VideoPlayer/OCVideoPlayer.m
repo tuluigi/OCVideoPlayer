@@ -26,7 +26,7 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
 
 
 
-@interface OCVideoPlayer ()<OCVideoPlayerControlViewDelegate>
+@interface OCVideoPlayer ()<OCVideoPlayerControlViewDelegate,OCVideoControlEventDelegate>
 @property(nonatomic,strong,readwrite)AVQueuePlayer *avPlayer;
 @property (nonatomic,strong,readwrite)NSMutableArray *contentURLArray;
 @property (nonatomic,strong,readwrite) OCVideoPlayerView *playerView;
@@ -224,14 +224,15 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
 
 -(void)advancedToPlayNextVideo{
     self.videoPlayerState=OCVideoPlayerStateFinsihed;
-    [self removeNotificationAndObserverWithAvPlayerItem:[self currentPlayerItem]];
-    if (_delegate&&[_delegate respondsToSelector:@selector(ocVideoPlayer:didFinishedPlayItemToEndTime:)]) {
-        [_delegate ocVideoPlayer:self didFinishedPlayItemToEndTime:[self currentPlayerItem]];
-    }
+ 
     NSInteger itemsCount=self.avPlayer.items.count;
     if (itemsCount==1) {
-        
+        return;
     }else if (itemsCount>1){
+        [self removeNotificationAndObserverWithAvPlayerItem:[self currentPlayerItem]];
+        if (_delegate&&[_delegate respondsToSelector:@selector(ocVideoPlayer:didFinishedPlayItemToEndTime:)]) {
+            [_delegate ocVideoPlayer:self didFinishedPlayItemToEndTime:[self currentPlayerItem]];
+        }
         [self.avPlayer advanceToNextItem];
         if (self.avPlayer.items.count==1) {
             _avPlayer.actionAtItemEnd=AVPlayerActionAtItemEndPause;
@@ -401,6 +402,7 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
         if (nil==_playerControlView) {
             _playerControlView=[[OCVideoPlayerControlView alloc]  init];
             _playerControlView.delegate=self;
+            _playerControlView.controlDelegate=self;
         }
         [_playerView addSubview:_playerControlView];
     }
@@ -494,7 +496,7 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
 }
 
 //action handler
--(void)videoPlayerControlViewActionWithEvent:(OCVideoPlayerControlEvent)event userInfo:(NSDictionary *)userInfo{
+-(void)didOcVideoPlayerHandleActionWithControlEvent:(OCVideoPlayerControlEvent)event userInfo:(NSDictionary *)userInfo{
     switch (event) {
         case OCVideoPlayerControlEventPlay:{
             self.videoPlayerState=OCVideoPlayerStatePlaying;
