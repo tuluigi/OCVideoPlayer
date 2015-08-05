@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OCVideoPlayerDemo/OCVideoPlayerView.m"
-            timestampString = "459346267.77658"
+            filePath = "OCVideoPlayerDemo/VideoPlayer/OCVideoPlayer.m"
+            timestampString = "460376967.63489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "-initWithFrame:"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
+            landmarkName = "-playVideoAtInde:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OCVideoPlayerDemo/OCVideoPlayerView.m"
-            timestampString = "459395675.701666"
+            filePath = "OCVideoPlayerDemo/VideoPlayer/OCVideoPlayer.m"
+            timestampString = "460376967.63489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "-initWithFrame:"
+            startingLineNumber = "511"
+            endingLineNumber = "511"
+            landmarkName = "-videoPlayerControlViewActionWithEvent:userInfo:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OCVideoPlayerDemo/OCVideoPlayerView.m"
-            timestampString = "459396824.493506"
+            filePath = "OCVideoPlayerDemo/VideoPlayer/OCVideoPlayer.m"
+            timestampString = "460379142.891871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-resetUIWithDeviceOrientation:"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,12 +57,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OCVideoPlayerDemo/OCVideoPlayerView.m"
-            timestampString = "459396800.880706"
+            filePath = "OCVideoPlayerDemo/VideoPlayer/OCVideoPlayer.m"
+            timestampString = "460379162.738763"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "149"
             endingLineNumber = "149"
+            landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCVideoPlayerDemo/VideoPlayer/OCVideoPlayer.m"
+            timestampString = "460379176.869462"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCVideoPlayerDemo/VideoPlayer/OCVideoPlayer.m"
+            timestampString = "460379179.851002"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
             landmarkType = "5">
          </BreakpointContent>

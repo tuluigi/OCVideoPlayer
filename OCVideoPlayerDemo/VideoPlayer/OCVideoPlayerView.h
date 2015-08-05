@@ -1,5 +1,5 @@
 //
-//  UIImage+OCVideoPlayer.h
+//  OCVideoPlayerView.h
 //  OCVideoPlayerDemo
 //
 //  Created by Luigi on 15/7/22.
@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface UIImage (OCVideoPlayer)
-+(UIImage *)ocv_imageNamed:(NSString *)aImageName;
+@interface OCVideoPlayerView : UIView
+- (void)setAvPlayer:(AVPlayer *)avPlayer;
+
 @end

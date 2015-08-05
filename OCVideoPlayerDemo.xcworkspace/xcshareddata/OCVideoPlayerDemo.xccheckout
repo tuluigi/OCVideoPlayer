@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>671F1F67-A2E5-4FFD-ABD1-786A2E212224</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OCVideoPlayerDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E15FB26E04510C9CFEA5EA3FBC4C2D3EA192286A</key>
+		<string>https://github.com/tuluigi/OCVideoPlayer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OCVideoPlayerDemo.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E15FB26E04510C9CFEA5EA3FBC4C2D3EA192286A</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/tuluigi/OCVideoPlayer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E15FB26E04510C9CFEA5EA3FBC4C2D3EA192286A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E15FB26E04510C9CFEA5EA3FBC4C2D3EA192286A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OCVideoPlayerDemo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

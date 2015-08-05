@@ -16,12 +16,13 @@
 		2A2AB0F11B57B89200E9A563 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A2AB0EF1B57B89200E9A563 /* LaunchScreen.xib */; };
 		2A2AB0FD1B57B89200E9A563 /* OCVideoPlayerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2AB0FC1B57B89200E9A563 /* OCVideoPlayerDemoTests.m */; };
 		2A2AB1071B57B8A200E9A563 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2AB1061B57B8A200E9A563 /* MediaPlayer.framework */; };
-		2A2AB10A1B57B99300E9A563 /* OCVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2AB1091B57B99300E9A563 /* OCVideoPlayer.m */; };
-		2A3B8C5E1B5E64A400111B72 /* OCVideoPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3B8C5D1B5E64A400111B72 /* OCVideoPlayerControlView.m */; };
-		2A3B8C611B5F49C400111B72 /* OCVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3B8C601B5F49C400111B72 /* OCVideoPlayerView.m */; };
-		2A3B8C631B5F7B5B00111B72 /* OCPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A3B8C621B5F7B5B00111B72 /* OCPlayer.bundle */; };
-		2A3B8C661B5F7BC300111B72 /* UIImage+OCVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3B8C651B5F7BC300111B72 /* UIImage+OCVideoPlayer.m */; };
-		2A3B8C691B5F7E9700111B72 /* NSString+OCPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3B8C681B5F7E9700111B72 /* NSString+OCPlayer.m */; };
+		2A7B61171B6F047A00A15C3F /* NSString+OCPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B610B1B6F047A00A15C3F /* NSString+OCPlayer.m */; };
+		2A7B61181B6F047A00A15C3F /* OCPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A7B610C1B6F047A00A15C3F /* OCPlayer.bundle */; };
+		2A7B61191B6F047A00A15C3F /* OCVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B610E1B6F047A00A15C3F /* OCVideoPlayer.m */; };
+		2A7B611A1B6F047A00A15C3F /* OCVideoPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B61101B6F047A00A15C3F /* OCVideoPlayerControlView.m */; };
+		2A7B611B1B6F047A00A15C3F /* OCVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B61121B6F047A00A15C3F /* OCVideoPlayerView.m */; };
+		2A7B611C1B6F047A00A15C3F /* OCVideoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B61161B6F047A00A15C3F /* OCVideoLoadingView.m */; };
+		2A8FE8D01B6F8AA2008A8DAF /* OCVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8FE8CF1B6F8AA2008A8DAF /* OCVideoPlayerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,18 +51,20 @@
 		2A2AB0FB1B57B89200E9A563 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A2AB0FC1B57B89200E9A563 /* OCVideoPlayerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCVideoPlayerDemoTests.m; sourceTree = "<group>"; };
 		2A2AB1061B57B8A200E9A563 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		2A2AB1081B57B99300E9A563 /* OCVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideoPlayer.h; sourceTree = "<group>"; };
-		2A2AB1091B57B99300E9A563 /* OCVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideoPlayer.m; sourceTree = "<group>"; };
-		2A3B8C5C1B5E64A400111B72 /* OCVideoPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideoPlayerControlView.h; sourceTree = "<group>"; };
-		2A3B8C5D1B5E64A400111B72 /* OCVideoPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideoPlayerControlView.m; sourceTree = "<group>"; };
-		2A3B8C5F1B5F49C400111B72 /* OCVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideoPlayerView.h; sourceTree = "<group>"; };
-		2A3B8C601B5F49C400111B72 /* OCVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideoPlayerView.m; sourceTree = "<group>"; };
-		2A3B8C621B5F7B5B00111B72 /* OCPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = OCPlayer.bundle; sourceTree = "<group>"; };
-		2A3B8C641B5F7BC300111B72 /* UIImage+OCVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OCVideoPlayer.h"; sourceTree = "<group>"; };
-		2A3B8C651B5F7BC300111B72 /* UIImage+OCVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+OCVideoPlayer.m"; sourceTree = "<group>"; };
-		2A3B8C671B5F7E9700111B72 /* NSString+OCPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OCPlayer.h"; sourceTree = "<group>"; };
-		2A3B8C681B5F7E9700111B72 /* NSString+OCPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OCPlayer.m"; sourceTree = "<group>"; };
-		2A3B8C6A1B5F914100111B72 /* OCVidePlayerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVidePlayerKit.h; sourceTree = "<group>"; };
+		2A7B610A1B6F047A00A15C3F /* NSString+OCPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OCPlayer.h"; sourceTree = "<group>"; };
+		2A7B610B1B6F047A00A15C3F /* NSString+OCPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OCPlayer.m"; sourceTree = "<group>"; };
+		2A7B610C1B6F047A00A15C3F /* OCPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = OCPlayer.bundle; sourceTree = "<group>"; };
+		2A7B610D1B6F047A00A15C3F /* OCVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideoPlayer.h; sourceTree = "<group>"; };
+		2A7B610E1B6F047A00A15C3F /* OCVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideoPlayer.m; sourceTree = "<group>"; };
+		2A7B610F1B6F047A00A15C3F /* OCVideoPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideoPlayerControlView.h; sourceTree = "<group>"; };
+		2A7B61101B6F047A00A15C3F /* OCVideoPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideoPlayerControlView.m; sourceTree = "<group>"; };
+		2A7B61111B6F047A00A15C3F /* OCVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideoPlayerView.h; sourceTree = "<group>"; };
+		2A7B61121B6F047A00A15C3F /* OCVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideoPlayerView.m; sourceTree = "<group>"; };
+		2A7B61131B6F047A00A15C3F /* OCVidePlayerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVidePlayerKit.h; sourceTree = "<group>"; };
+		2A7B61151B6F047A00A15C3F /* OCVideoLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideoLoadingView.h; sourceTree = "<group>"; };
+		2A7B61161B6F047A00A15C3F /* OCVideoLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideoLoadingView.m; sourceTree = "<group>"; };
+		2A8FE8CE1B6F8AA2008A8DAF /* OCVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideoPlayerViewController.h; sourceTree = "<group>"; };
+		2A8FE8CF1B6F8AA2008A8DAF /* OCVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideoPlayerViewController.m; sourceTree = "<group>"; };
 		2F5C665669400E96B1EF2645 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A17F123BADBCF592CAFD97B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +113,7 @@
 		2A2AB0DF1B57B89200E9A563 /* OCVideoPlayerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2A7B61081B6F047A00A15C3F /* VideoPlayer */,
 				2A2AB0E41B57B89200E9A563 /* AppDelegate.h */,
 				2A2AB0E51B57B89200E9A563 /* AppDelegate.m */,
 				2A2AB0E71B57B89200E9A563 /* ViewController.h */,
@@ -118,18 +122,6 @@
 				2A2AB0ED1B57B89200E9A563 /* Images.xcassets */,
 				2A2AB0EF1B57B89200E9A563 /* LaunchScreen.xib */,
 				2A2AB0E01B57B89200E9A563 /* Supporting Files */,
-				2A2AB1081B57B99300E9A563 /* OCVideoPlayer.h */,
-				2A2AB1091B57B99300E9A563 /* OCVideoPlayer.m */,
-				2A3B8C5C1B5E64A400111B72 /* OCVideoPlayerControlView.h */,
-				2A3B8C5D1B5E64A400111B72 /* OCVideoPlayerControlView.m */,
-				2A3B8C5F1B5F49C400111B72 /* OCVideoPlayerView.h */,
-				2A3B8C601B5F49C400111B72 /* OCVideoPlayerView.m */,
-				2A3B8C621B5F7B5B00111B72 /* OCPlayer.bundle */,
-				2A3B8C641B5F7BC300111B72 /* UIImage+OCVideoPlayer.h */,
-				2A3B8C651B5F7BC300111B72 /* UIImage+OCVideoPlayer.m */,
-				2A3B8C671B5F7E9700111B72 /* NSString+OCPlayer.h */,
-				2A3B8C681B5F7E9700111B72 /* NSString+OCPlayer.m */,
-				2A3B8C6A1B5F914100111B72 /* OCVidePlayerKit.h */,
 			);
 			path = OCVideoPlayerDemo;
 			sourceTree = "<group>";
@@ -158,6 +150,43 @@
 				2A2AB0FB1B57B89200E9A563 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A7B61081B6F047A00A15C3F /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				2A7B610D1B6F047A00A15C3F /* OCVideoPlayer.h */,
+				2A7B610E1B6F047A00A15C3F /* OCVideoPlayer.m */,
+				2A7B610F1B6F047A00A15C3F /* OCVideoPlayerControlView.h */,
+				2A7B61101B6F047A00A15C3F /* OCVideoPlayerControlView.m */,
+				2A7B61111B6F047A00A15C3F /* OCVideoPlayerView.h */,
+				2A7B61121B6F047A00A15C3F /* OCVideoPlayerView.m */,
+				2A7B61131B6F047A00A15C3F /* OCVidePlayerKit.h */,
+				2A8FE8CE1B6F8AA2008A8DAF /* OCVideoPlayerViewController.h */,
+				2A8FE8CF1B6F8AA2008A8DAF /* OCVideoPlayerViewController.m */,
+				2A7B61141B6F047A00A15C3F /* WidgetView */,
+				2A7B61091B6F047A00A15C3F /* Category */,
+				2A7B610C1B6F047A00A15C3F /* OCPlayer.bundle */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		2A7B61091B6F047A00A15C3F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				2A7B610A1B6F047A00A15C3F /* NSString+OCPlayer.h */,
+				2A7B610B1B6F047A00A15C3F /* NSString+OCPlayer.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		2A7B61141B6F047A00A15C3F /* WidgetView */ = {
+			isa = PBXGroup;
+			children = (
+				2A7B61151B6F047A00A15C3F /* OCVideoLoadingView.h */,
+				2A7B61161B6F047A00A15C3F /* OCVideoLoadingView.m */,
+			);
+			path = WidgetView;
 			sourceTree = "<group>";
 		};
 		F7E635B0DB9649C2AF9E6B30 /* Pods */ = {
@@ -261,7 +290,7 @@
 			files = (
 				2A2AB0EC1B57B89200E9A563 /* Main.storyboard in Resources */,
 				2A2AB0F11B57B89200E9A563 /* LaunchScreen.xib in Resources */,
-				2A3B8C631B5F7B5B00111B72 /* OCPlayer.bundle in Resources */,
+				2A7B61181B6F047A00A15C3F /* OCPlayer.bundle in Resources */,
 				2A2AB0EE1B57B89200E9A563 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,14 +342,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A3B8C691B5F7E9700111B72 /* NSString+OCPlayer.m in Sources */,
-				2A2AB10A1B57B99300E9A563 /* OCVideoPlayer.m in Sources */,
-				2A3B8C611B5F49C400111B72 /* OCVideoPlayerView.m in Sources */,
+				2A7B61171B6F047A00A15C3F /* NSString+OCPlayer.m in Sources */,
+				2A7B611C1B6F047A00A15C3F /* OCVideoLoadingView.m in Sources */,
 				2A2AB0E91B57B89200E9A563 /* ViewController.m in Sources */,
-				2A3B8C5E1B5E64A400111B72 /* OCVideoPlayerControlView.m in Sources */,
 				2A2AB0E61B57B89200E9A563 /* AppDelegate.m in Sources */,
-				2A3B8C661B5F7BC300111B72 /* UIImage+OCVideoPlayer.m in Sources */,
 				2A2AB0E31B57B89200E9A563 /* main.m in Sources */,
+				2A7B61191B6F047A00A15C3F /* OCVideoPlayer.m in Sources */,
+				2A7B611B1B6F047A00A15C3F /* OCVideoPlayerView.m in Sources */,
+				2A8FE8D01B6F8AA2008A8DAF /* OCVideoPlayerViewController.m in Sources */,
+				2A7B611A1B6F047A00A15C3F /* OCVideoPlayerControlView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,9 +477,11 @@
 			baseConfigurationReference = 28DC89C599984B4DFF6777F3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: NetEase (Hangzhou) Network Co., Ltd. (J669Y64Z9Y)";
 				INFOPLIST_FILE = OCVideoPlayerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ef80646b-f4f5-4784-9f14-4512f972a097";
 			};
 			name = Debug;
 		};
@@ -458,9 +490,11 @@
 			baseConfigurationReference = 3A17F123BADBCF592CAFD97B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: NetEase (Hangzhou) Network Co., Ltd. (J669Y64Z9Y)";
 				INFOPLIST_FILE = OCVideoPlayerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ef80646b-f4f5-4784-9f14-4512f972a097";
 			};
 			name = Release;
 		};
