@@ -38,7 +38,7 @@
     return !_actionButton.selected;
 }
 -(CGFloat)sliderThumbImagePointX{
-    CGRect trackRect = [self.slider trackRectForBounds:self.slider.bounds];
+    CGRect trackRect = [self.slider trackRectForBounds:self.progressView.bounds];
     CGRect thumbRect = [self.slider thumbRectForBounds:self.slider.bounds
                                              trackRect:trackRect
                                                  value:self.currentTime];
@@ -58,7 +58,7 @@
     }else if (currentTime<=self.slider.minimumValue){
         currentTime=self.slider.minimumValue;
     }
-    [self.slider setValue:currentTime animated:YES];
+   
     self.timeLable.text=[self convertVideoSeconds:self.slider.maximumValue];
     self.fullPlayTimeLable.text=[self convertVideoSeconds:self.slider.value];
     
@@ -75,6 +75,9 @@
         progress=0;
     }
     self.progressView.progress=progress;
+}
+-(void)didSliderTouched:(UISlider *)slder{
+
 }
 -(void)didSliderValueChaged:(UISlider *)slider{
     [self updateTrackCurrentPlayTime:slider.value];
@@ -130,6 +133,7 @@
     return self.slider.minimumValue;
 }
 -(void)setCurrentTime:(NSTimeInterval)currentTime{
+    [self.slider setValue:currentTime animated:YES];
     [self updateTrackCurrentPlayTime:currentTime];
 }
 
@@ -170,6 +174,7 @@
     
     _progressView=[[UIProgressView alloc]  initWithProgressViewStyle:UIProgressViewStyleDefault];
     _progressView.progress=0;
+    _progressView.userInteractionEnabled=YES;
     [self addSubview:_progressView];
     
     _slider=[[UISlider alloc]  init];
@@ -184,7 +189,7 @@
     [_slider addTarget:self action:@selector(didSliderValueChaged:) forControlEvents:UIControlEventValueChanged];
     [_slider addTarget:self action:@selector(didSliderTouchUpInSide:) forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchDragOutside|UIControlEventTouchDragExit];
     _slider.backgroundColor=[UIColor clearColor];
-    [self addSubview:_slider];
+    [_progressView addSubview:_slider];
     
     
     _timeLable=[[UILabel alloc]  init];
@@ -219,7 +224,7 @@
         make.left.equalTo(_fullPlayTimeLable.mas_right).offset(5);
         make.right.equalTo(_timeLable.mas_left).offset(-5);
         make.centerY.mas_equalTo(weakSelf);
-        make.height.equalTo(@2);
+        make.height.equalTo(@3);
     }];
     [_slider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(_progressView);

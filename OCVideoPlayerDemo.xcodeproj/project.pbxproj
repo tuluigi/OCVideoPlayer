@@ -11,6 +11,7 @@
 		2A1AB0691B71AB6100BAD997 /* OCVideoNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1AB0681B71AB6100BAD997 /* OCVideoNavBar.m */; };
 		2A1AB06C1B71AB8300BAD997 /* OCVideoToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1AB06B1B71AB8300BAD997 /* OCVideoToolBar.m */; };
 		2A1AB06F1B71DDCA00BAD997 /* OCVideToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1AB06E1B71DDCA00BAD997 /* OCVideToolView.m */; };
+		2A1AB0751B720CA900BAD997 /* UIViewController+OCOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1AB0741B720CA900BAD997 /* UIViewController+OCOrientation.m */; };
 		2A2AB0E31B57B89200E9A563 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2AB0E21B57B89200E9A563 /* main.m */; };
 		2A2AB0E61B57B89200E9A563 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2AB0E51B57B89200E9A563 /* AppDelegate.m */; };
 		2A2AB0E91B57B89200E9A563 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2AB0E81B57B89200E9A563 /* ViewController.m */; };
@@ -46,6 +47,8 @@
 		2A1AB06B1B71AB8300BAD997 /* OCVideoToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideoToolBar.m; sourceTree = "<group>"; };
 		2A1AB06D1B71DDCA00BAD997 /* OCVideToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideToolView.h; sourceTree = "<group>"; };
 		2A1AB06E1B71DDCA00BAD997 /* OCVideToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideToolView.m; sourceTree = "<group>"; };
+		2A1AB0731B720CA900BAD997 /* UIViewController+OCOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+OCOrientation.h"; sourceTree = "<group>"; };
+		2A1AB0741B720CA900BAD997 /* UIViewController+OCOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+OCOrientation.m"; sourceTree = "<group>"; };
 		2A2AB0DD1B57B89200E9A563 /* OCVideoPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCVideoPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A2AB0E11B57B89200E9A563 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A2AB0E21B57B89200E9A563 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				2A2AB0ED1B57B89200E9A563 /* Images.xcassets */,
 				2A2AB0EF1B57B89200E9A563 /* LaunchScreen.xib */,
 				2A2AB0E01B57B89200E9A563 /* Supporting Files */,
+				2A1AB0731B720CA900BAD997 /* UIViewController+OCOrientation.h */,
+				2A1AB0741B720CA900BAD997 /* UIViewController+OCOrientation.m */,
 			);
 			path = OCVideoPlayerDemo;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 				2A2AB0E61B57B89200E9A563 /* AppDelegate.m in Sources */,
 				2A1AB06F1B71DDCA00BAD997 /* OCVideToolView.m in Sources */,
 				2A2AB0E31B57B89200E9A563 /* main.m in Sources */,
+				2A1AB0751B720CA900BAD997 /* UIViewController+OCOrientation.m in Sources */,
 				2A7B61191B6F047A00A15C3F /* OCVideoPlayer.m in Sources */,
 				2A7B611B1B6F047A00A15C3F /* OCVideoPlayerView.m in Sources */,
 				2A8FE8D01B6F8AA2008A8DAF /* OCVideoPlayerViewController.m in Sources */,
@@ -495,11 +501,11 @@
 			baseConfigurationReference = 28DC89C599984B4DFF6777F3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: NetEase (Hangzhou) Network Co., Ltd. (J669Y64Z9Y)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ye xiao (PN94BG49RW)";
 				INFOPLIST_FILE = OCVideoPlayerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ef80646b-f4f5-4784-9f14-4512f972a097";
+				PROVISIONING_PROFILE = "6c10b334-fb37-4255-9d67-cf2466c03c5c";
 			};
 			name = Debug;
 		};
@@ -508,11 +514,11 @@
 			baseConfigurationReference = 3A17F123BADBCF592CAFD97B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: NetEase (Hangzhou) Network Co., Ltd. (J669Y64Z9Y)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ye xiao (PN94BG49RW)";
 				INFOPLIST_FILE = OCVideoPlayerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ef80646b-f4f5-4784-9f14-4512f972a097";
+				PROVISIONING_PROFILE = "6c10b334-fb37-4255-9d67-cf2466c03c5c";
 			};
 			name = Release;
 		};

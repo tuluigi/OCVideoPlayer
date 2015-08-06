@@ -44,6 +44,7 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
         [self removeNotificationAndObserverWithAvPlayerItem:item];
     }
     [[self avPlayer] removeObserver:self forKeyPath:@"rate"];
+    [[self avPlayer] removeObserver:self forKeyPath:@"status"];
     [[self avPlayer] removeTimeObserver:self];
     
     [self.timer invalidate];
@@ -138,6 +139,7 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
         }else if ([keyPath isEqualToString:@"status"]){
             AVPlayerStatus status=[[change objectForKey:NSKeyValueChangeNewKey] integerValue];
             if (status==AVPlayerStatusReadyToPlay) {
+               
                 self.videoPlayerState=OCVideoPlayerStateReadPlay;
             }else if (status==AVPlayerStatusFailed){
                 self.videoPlayerState=OCVideoPlayerStateError;
@@ -147,14 +149,11 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
         }
     }else if (object==currentItem){
         if ([keyPath isEqualToString:@"loadedTimeRanges"]){
-            NSArray *loadedTimeRanges = [currentItem loadedTimeRanges];
-            CMTimeRange timeRange = [loadedTimeRanges.firstObject CMTimeRangeValue];// 获取缓冲区域
-            NSTimeInterval startSeconds = CMTimeGetSeconds(timeRange.start);
-            NSTimeInterval durationSeconds = CMTimeGetSeconds(timeRange.duration);
-            NSTimeInterval timeInterval = startSeconds + durationSeconds;// 计算缓冲总进度
+            NSTimeInterval timeInterval=[self currentLoadedTime];
             [self.playerControlView updateTrackLoadedTime:timeInterval];
         }else if ([keyPath isEqualToString:@"status"]){
             if (currentItem.status==AVPlayerItemStatusReadyToPlay) {
+                 self.videoPlayerState=OCVideoPlayerStateItemReadPlay;
                 CGFloat duration=CMTimeGetSeconds(currentItem.duration);
                 [self.playerControlView setTrackMinValue:0 maxVlaue:duration];
                
@@ -191,6 +190,7 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
             [avItems addObject:item];
         }
         if (_avPlayer) {
+            [self.avPlayer pause];
             self.videoPlayerState=OCVideoPlayerStateFinsihed;
             for (AVPlayerItem *item in self.avPlayer.items) {
                 [self removeNotificationAndObserverWithAvPlayerItem:item];
@@ -204,7 +204,7 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
         }else{
             
             _avPlayer=[AVQueuePlayer queuePlayerWithItems:avItems];
-            _avPlayer.actionAtItemEnd=AVPlayerActionAtItemEndNone;
+            _avPlayer.actionAtItemEnd=AVPlayerActionAtItemEndAdvance;
             [self.playerView setAvPlayer:_avPlayer];
             
             __weak OCVideoPlayer *weakSelf=self;
@@ -216,6 +216,17 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
                 [weakSelf.playerControlView updateTrackCurrentPlayTime:currentTime];
             }];
         }
+        /*
+        AVURLAsset *asset=(AVURLAsset *)[self.avPlayer currentItem];
+        [asset loadValuesAsynchronouslyForKeys:@[@"track"] completionHandler:^{
+            NSError *error;
+            AVKeyValueStatus status = [asset statusOfValueForKey:@"track" error:&error];
+            if (status==AVKeyValueStatusLoaded) {
+                
+            }
+        }];
+         */
+        
         return self.avPlayer;
     }else{
         return nil;
@@ -362,8 +373,11 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
                 [[self avPlayer] pause];
             }
         }break;
-        case OCVideoPlayerStateReadPlay:{
-            
+        case OCVideoPlayerStateReadPlay:
+        case OCVideoPlayerStateItemReadPlay:{
+            if (![self isPlayingVideo]) {
+                [self.avPlayer play];
+            }
         }break;
         case OCVideoPlayerStatePlaying:{
             if (![self isPlayingVideo]) {
@@ -380,12 +394,17 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
                 [[self avPlayer] pause];
             }
         }break;
+        case OCVideoPlayerStateFinsihed:{
+           // [[self avPlayer]pause];
+        }break;
         default:
             break;
     }
     if (_videoPlayerState==OCVideoPlayerStateStalled) {
+        self.playerControlView.isShowBufferView=YES;
         [self.timer setFireDate:[NSDate distantPast]];
     }else{
+         self.playerControlView.isShowBufferView=NO;
         [self.timer setFireDate:[NSDate distantFuture]];
     }
     if (_delegate&&[_delegate respondsToSelector:@selector(ocVidePlayer:didStateChanged:userInfo:)]) {
@@ -428,6 +447,15 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
     }
     return nil;
 }
+-(NSTimeInterval)currentLoadedTime{
+    NSArray *loadedTimeRanges = [[self currentPlayerItem] loadedTimeRanges];
+    CMTimeRange timeRange = [loadedTimeRanges.firstObject CMTimeRangeValue];// 获取缓冲区域
+    NSTimeInterval startSeconds = CMTimeGetSeconds(timeRange.start);
+    NSTimeInterval durationSeconds = CMTimeGetSeconds(timeRange.duration);
+    NSTimeInterval timeInterval = startSeconds + durationSeconds;// 计算缓冲总进度
+
+    return timeInterval;
+}
 -(NSTimeInterval)currentTime{
     CMTime currentTime=[[self currentPlayerItem] currentTime];
     return CMTimeGetSeconds(currentTime);
@@ -462,11 +490,15 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
     self.videoPlayerState=OCVideoPlayerStatePaused;
     switch (direction) {
         case OCVideoSwipeDirectionHorizontal:{
-            UIImage *image=[self thumbImageAtTime:value];
-            if (image) {
-                NSDictionary *userInfo=@{OCVidePlayerThumbnailImageKey:image};
-                block(userInfo);
-            }
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                UIImage *image=[self thumbImageAtTime:value];
+                if (image) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSDictionary *userInfo=@{OCVidePlayerThumbnailImageKey:image};
+                        block(userInfo);
+                    });
+                }
+            });
         }
             break;
         case OCVideoSwipeDirectionVertical:{
@@ -480,11 +512,30 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
     switch (direction) {
         case OCVideoSwipeDirectionHorizontal:{
             __weak OCVideoPlayer *weakSelf=self;
-            [[self avPlayer] seekToTime:CMTimeMakeWithSeconds(value, 1) completionHandler:^(BOOL finished) {
+            if(([self currentTime]>[self currentLoadedTime])){
+                self.videoPlayerState=OCVideoPlayerStatePaused;
+                [self.timer setFireDate:[NSDate distantPast]];
+            }
+            int32_t timeScale = self.avPlayer.currentItem.asset.duration.timescale;
+            if ([self.avPlayer respondsToSelector:@selector(seekToTime:toleranceBefore:toleranceAfter:completionHandler:)]) {
+                [self.avPlayer seekToTime:CMTimeMakeWithSeconds(value, timeScale) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero completionHandler:^(BOOL finished) {
+                    if (finished) {
+                        weakSelf.videoPlayerState=OCVideoPlayerStatePlaying;
+                    }
+                }];
+
+            }else{
+                [self.avPlayer seekToTime:CMTimeMakeWithSeconds(value, timeScale) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+            }
+            /*
+                        [[self avPlayer] seekToTime:CMTimeMakeWithSeconds(value, timeScale) completionHandler:^(BOOL finished) {
                 if (finished) {
                     weakSelf.videoPlayerState=OCVideoPlayerStatePlaying;
+                }else{
+                    weakSelf.videoPlayerState=OCVideoPlayerStatePaused;
                 }
             }];
+             */
         }
             break;
         case OCVideoSwipeDirectionVertical:{

@@ -122,6 +122,12 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
             [self pause];
             self.isShowBufferView=YES;
         }break;
+        case OCVideoPlayerStateFinsihed:{
+            [self pause];
+            [self.toolView setTrackMinValue:0 maxVlaue:0];
+            self.toolView.currentTime=0;
+            self.toolView.loadedTime=0;
+        }break;
         default:
             break;
     }
@@ -326,7 +332,7 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
         [self addSubview:_thubmImageView];
         __weak OCVideoPlayerControlView *weakSelf=self;
         [_thubmImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(weakSelf.toolView.mas_top).offset(10);
+            make.bottom.mas_equalTo(weakSelf.toolView.mas_top).offset(8.0);
             make.size.mas_equalTo(CGSizeMake(100, 80));
         }];
     }
@@ -336,6 +342,7 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
 -(OCVideToolView *)toolView{
     if (nil==_toolView) {
         _toolView=[[OCVideToolView alloc]  init];
+        _toolView.userInteractionEnabled=YES;
         _toolView.delegate=self;
         _toolView.controlDelegate=self;
     }
@@ -361,6 +368,7 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
             }
         }];
     }
+    
 }
 -(void)didTrackValueEndedChang:(CGFloat)value{
     self.thubmImageView.image=nil;

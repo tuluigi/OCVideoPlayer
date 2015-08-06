@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger, OCVideoPlayerState)  {
     OCVideoPlayerStateUnknown   ,
     OCVideoPlayerStateLoading   ,
     OCVideoPlayerStateReadPlay  ,
+    OCVideoPlayerStateItemReadPlay,
     OCVideoPlayerStatePlaying   ,
     OCVideoPlayerStatePaused   ,
     OCVideoPlayerStateStalled   ,
@@ -19,7 +20,9 @@ typedef NS_ENUM(NSInteger, OCVideoPlayerState)  {
     OCVideoPlayerStateDismissed ,
     OCVideoPlayerStateError     ,
 } ;
-
+typedef NS_ENUM(NSInteger, OCVideoPlayerErrorCode) {
+    OCVideoPlayerErrorAVPlayerFail,
+};
 typedef NS_ENUM(NSInteger, OCVideoPlayerItemState)  {
     OCVideoPlayerItemStateUnknown   ,
     OCVideoPlayerItemStateReadPlay  ,

@@ -44,15 +44,31 @@
     switch (event) {
         case OCVideoPlayerControlEventFullScreen:
         {
+//            [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationPortrait] forKey:@"orientation"];
 //            [[UIDevice currentDevice] setValue:
 //             [NSNumber numberWithInteger: UIInterfaceOrientationLandscapeRight]
 //                                        forKey:@"orientation"];
             
-            [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
-            self.view.transform = CGAffineTransformMakeRotation(M_PI/2);
-            CGRect frame = [UIScreen mainScreen].applicationFrame;
-            self.view.bounds = CGRectMake(0, 0, frame.size.height, frame.size.width);
-            [self.view setNeedsLayout];
+//            [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
+//            self.view.transform = CGAffineTransformMakeRotation(M_PI/2);
+//            CGRect frame = [UIScreen mainScreen].applicationFrame;
+//            self.view.bounds = CGRectMake(0, 0, frame.size.height, frame.size.width);
+//            [self.view setNeedsLayout];
+            /*
+            __weak OCVideoPlayerViewController *weakSelf=self;
+            [UIView transitionWithView:self.view duration:0.25 options:UIViewAnimationOptionAllowAnimatedContent animations:^{
+                self.view.transform = CGAffineTransformMakeRotation(M_PI/2);
+                [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
+               // [self.view setNeedsLayout];
+            } completion:^(BOOL finished) {
+                if (finished) {
+                   
+                      self.view.frame = [[UIScreen mainScreen] bounds];
+                    self.videoPlayer.playerView.frame=self.view.bounds;
+                     [self.videoPlayer.playerView setNeedsLayout];
+                }
+            }];
+             */
         }
             break;
             
@@ -67,28 +83,15 @@
     
 }
 #pragma mark - Orientation
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    if (self.videoPlayer.enableFullScreen) {
-        return UIInterfaceOrientationIsLandscape(interfaceOrientation);
-    } else {
-        return NO;
-    }
-}
-#ifdef __IPHONE_6_0
 - (BOOL)shouldAutorotate {
     return YES;
 }
--(NSUInteger)supportedInterfaceOrientations{
-    return UIInterfaceOrientationMaskAllButUpsideDown;
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait|UIInterfaceOrientationMaskLandscape;
 }
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
-    return UIInterfaceOrientationPortrait|UIInterfaceOrientationLandscapeLeft|UIInterfaceOrientationLandscapeRight|UIInterfaceOrientationPortraitUpsideDown;
-
-}
-#endif
--(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
-
-}
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+//    return UIInterfaceOrientationLandscapeRight;
+//}
 /*
 #pragma mark - Navigation
 
