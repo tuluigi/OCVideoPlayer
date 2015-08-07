@@ -20,6 +20,7 @@
 @interface OCVideToolView : UIView
 @property(nonatomic,assign,readonly) NSTimeInterval minTime,maxTime;
 @property(nonatomic,assign) NSTimeInterval currentTime;
+@property(nonatomic,copy,readonly)NSString *playTimeStr;
 @property(nonatomic,assign) NSTimeInterval loadedTime;
 
 

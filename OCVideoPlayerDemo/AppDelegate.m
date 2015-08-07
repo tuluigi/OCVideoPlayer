@@ -23,7 +23,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
 
-    
+    /*
 #if TARGET_IPHONE_SIMULATOR
     [[NSUserDefaults standardUserDefaults]  setObject:@"69ca693aaeaa0197bcd65a3916956cbffdadccfbef004cd7a2a5b0cf16ba8ce5" forKey:DEVICE_TOKEN];
 #else
@@ -41,6 +41,7 @@
         }
     }
 #endif
+     */
 }
 #ifdef __IPHONE_8_0
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings

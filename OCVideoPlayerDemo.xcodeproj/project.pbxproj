@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		098ABFB9D8B20D9F48868F44 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5C665669400E96B1EF2645 /* libPods.a */; };
+		2A0950601B744A8400FF2B60 /* OCVideoThumbImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A09505F1B744A8400FF2B60 /* OCVideoThumbImageView.m */; };
 		2A1AB0691B71AB6100BAD997 /* OCVideoNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1AB0681B71AB6100BAD997 /* OCVideoNavBar.m */; };
 		2A1AB06C1B71AB8300BAD997 /* OCVideoToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1AB06B1B71AB8300BAD997 /* OCVideoToolBar.m */; };
 		2A1AB06F1B71DDCA00BAD997 /* OCVideToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1AB06E1B71DDCA00BAD997 /* OCVideToolView.m */; };
@@ -41,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		28DC89C599984B4DFF6777F3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2A09505E1B744A8400FF2B60 /* OCVideoThumbImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCVideoThumbImageView.h; path = OCVideoPlayerDemo/VideoPlayer/OCVideoThumbImageView.h; sourceTree = SOURCE_ROOT; };
+		2A09505F1B744A8400FF2B60 /* OCVideoThumbImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCVideoThumbImageView.m; path = OCVideoPlayerDemo/VideoPlayer/OCVideoThumbImageView.m; sourceTree = SOURCE_ROOT; };
 		2A1AB0671B71AB6100BAD997 /* OCVideoNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideoNavBar.h; sourceTree = "<group>"; };
 		2A1AB0681B71AB6100BAD997 /* OCVideoNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVideoNavBar.m; sourceTree = "<group>"; };
 		2A1AB06A1B71AB8300BAD997 /* OCVideoToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVideoToolBar.h; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				2A1AB06B1B71AB8300BAD997 /* OCVideoToolBar.m */,
 				2A1AB06D1B71DDCA00BAD997 /* OCVideToolView.h */,
 				2A1AB06E1B71DDCA00BAD997 /* OCVideToolView.m */,
+				2A09505E1B744A8400FF2B60 /* OCVideoThumbImageView.h */,
+				2A09505F1B744A8400FF2B60 /* OCVideoThumbImageView.m */,
 			);
 			path = WidgetView;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 				2A1AB0691B71AB6100BAD997 /* OCVideoNavBar.m in Sources */,
 				2A2AB0E61B57B89200E9A563 /* AppDelegate.m in Sources */,
 				2A1AB06F1B71DDCA00BAD997 /* OCVideToolView.m in Sources */,
+				2A0950601B744A8400FF2B60 /* OCVideoThumbImageView.m in Sources */,
 				2A2AB0E31B57B89200E9A563 /* main.m in Sources */,
 				2A1AB0751B720CA900BAD997 /* UIViewController+OCOrientation.m in Sources */,
 				2A7B61191B6F047A00A15C3F /* OCVideoPlayer.m in Sources */,

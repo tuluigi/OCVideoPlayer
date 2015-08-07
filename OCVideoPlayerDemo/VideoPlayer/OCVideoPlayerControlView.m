@@ -12,12 +12,13 @@
 #import "NSString+OCPlayer.h"
 #import "OCVideToolView.h"
 #import "OCVideoNavBar.h"
+#import "OCVideoThumbImageView.h"
 NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey";
 @interface OCVideoPlayerControlView ()<OCVideoToolViewDelegate,OCVideoControlEventDelegate>
 @property (nonatomic,strong)UIView  *bottomView,*topView;
 @property (nonatomic,strong)OCVideoNavBar   *navBar;
 @property (nonatomic,strong)OCVideToolView  *toolView;
-@property (nonatomic,strong)UIImageView     *thubmImageView;
+@property (nonatomic,strong)OCVideoThumbImageView *thumbView;
 
 @property (nonatomic,assign)CGPoint lastTouchPosition;
 @property (nonatomic,assign)OCVideoSwipeDirection swipeDirection;
@@ -181,9 +182,9 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
     //    [self resetUIWithDeviceOrientation:orientation];
 }
 -(void)updateThumbImagePosition{
-    if ((!self.thubmImageView.hidden)&&(![self isWidgetViewHidden])) {
-        CGFloat offx=self.toolView.sliderThumbImagePointX-CGRectGetWidth(_thubmImageView.bounds)/2;
-        [self.thubmImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+    if ((!self.thumbView.hidden)&&(![self isWidgetViewHidden])) {
+        CGFloat offx=self.toolView.sliderThumbImagePointX-CGRectGetWidth(_thumbView.bounds)/2;
+        [self.thumbView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(offx);
         }];
         [self layoutIfNeeded];
@@ -219,7 +220,7 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
                 if (OCVideoSwipeDirectionUnknown==self.swipeDirection) {
                     self.swipeDirection=OCVideoSwipeDirectionHorizontal;
                     if (_delegate&&[_delegate respondsToSelector:@selector(videoPlayerControlViewBeginSwipeWithDirection:)]) {
-                        self.thubmImageView.hidden=NO;
+                        self.thumbView.hidden=NO;
                         [_delegate videoPlayerControlViewBeginSwipeWithDirection:self.swipeDirection];
                     }
                 }
@@ -249,8 +250,7 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
             }
         }
     }else{//快进结束
-        self.thubmImageView.image=nil;
-        self.thubmImageView.hidden=YES;
+        self.thumbView.hidden=YES;
         if (_delegate&&[_delegate respondsToSelector:@selector(videoPlayerControlViewEndedSwipeWithDirection:value:)]) {
             CGFloat value=0;
             if ( self.swipeDirection==OCVideoSwipeDirectionVertical) {
@@ -284,9 +284,11 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
     }
     __weak OCVideoPlayerControlView *weakSelf=self;
     if (_delegate&&[_delegate respondsToSelector:@selector(videoPlayerControlViewSwipingWithDirection:value:handlerBlock:)]) {
+        [self.thumbView setThumbImage:nil atTime:[self.toolView playTimeStr]];
         [_delegate videoPlayerControlViewSwipingWithDirection:self.swipeDirection value:self.toolView.currentTime handlerBlock:^(NSDictionary *userInfo) {
-            if (userInfo&&direction==OCVideoSwipeDirectionHorizontal&&!weakSelf.thubmImageView.hidden&&![weakSelf isWidgetViewHidden]) {
-                weakSelf.thubmImageView.image=[userInfo objectForKey:OCVidePlayerThumbnailImageKey];
+            if (userInfo&&direction==OCVideoSwipeDirectionHorizontal&&!weakSelf.thumbView.hidden&&![weakSelf isWidgetViewHidden]) {
+                UIImage *thumbImage=[userInfo objectForKey:OCVidePlayerThumbnailImageKey];
+                [weakSelf.thumbView setThumbImage:thumbImage atTime:[weakSelf.toolView playTimeStr]];
             }
         }];
     }
@@ -324,21 +326,18 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
 }
 
 
--(UIImageView *)thubmImageView{
-    if (nil==_thubmImageView) {
-        _thubmImageView=[UIImageView new];
-        _thubmImageView.backgroundColor=[UIColor blackColor];
-        _thubmImageView.hidden=YES;
-        [self addSubview:_thubmImageView];
+-(OCVideoThumbImageView *)thumbView{
+    if (nil==_thumbView) {
+        _thumbView=[OCVideoThumbImageView videoThumbView];
+        [self addSubview:_thumbView];
         __weak OCVideoPlayerControlView *weakSelf=self;
-        [_thubmImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(weakSelf.toolView.mas_top).offset(8.0);
-            make.size.mas_equalTo(CGSizeMake(100, 80));
+        [_thumbView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(weakSelf.toolView.mas_top).offset(5);
+            make.size.mas_equalTo(CGSizeMake(80, 80));
         }];
     }
-    return _thubmImageView;
+    return _thumbView;
 }
-
 -(OCVideToolView *)toolView{
     if (nil==_toolView) {
         _toolView=[[OCVideToolView alloc]  init];
@@ -358,21 +357,22 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
 }
 #pragma mark - ToolViewDelegate
 -(void)didTrackValueChanging:(CGFloat)value{
-    self.thubmImageView.hidden=NO;
+    self.thumbView.hidden=NO;
     [self updateThumbImagePosition];
     __weak OCVideoPlayerControlView *weakSelf=self;
     if (_delegate&&[_delegate respondsToSelector:@selector(videoPlayerControlViewSwipingWithDirection:value:handlerBlock:)]) {
+         [self.thumbView setThumbImage:nil atTime:[self.toolView playTimeStr]];
         [_delegate videoPlayerControlViewSwipingWithDirection:OCVideoSwipeDirectionHorizontal value:value handlerBlock:^(NSDictionary *userInfo) {
             if (userInfo) {
-                weakSelf.thubmImageView.image=[userInfo objectForKey:OCVidePlayerThumbnailImageKey];
+                [weakSelf.thumbView setThumbImage:[userInfo objectForKey:OCVidePlayerThumbnailImageKey] atTime:[weakSelf.toolView playTimeStr]];
             }
         }];
     }
     
 }
 -(void)didTrackValueEndedChang:(CGFloat)value{
-    self.thubmImageView.image=nil;
-    self.thubmImageView.hidden=YES;
+    [self.thumbView setThumbImage:nil atTime:nil];
+    self.thumbView.hidden=YES;
     if (_delegate&&[_delegate respondsToSelector:@selector(videoPlayerControlViewEndedSwipeWithDirection:value:)]) {
         [_delegate videoPlayerControlViewEndedSwipeWithDirection:OCVideoSwipeDirectionHorizontal value:value];
     }

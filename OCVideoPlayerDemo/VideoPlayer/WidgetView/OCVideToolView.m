@@ -140,6 +140,9 @@
 -(NSTimeInterval)currentTime{
     return self.slider.value;
 }
+-(NSString *)playTimeStr{
+    return self.fullPlayTimeLable.text;
+}
 -(void)setLoadedTime:(NSTimeInterval)loadedTime{
     [self updateTrackLoadedTime:loadedTime];
 }
@@ -189,7 +192,8 @@
     [_slider addTarget:self action:@selector(didSliderValueChaged:) forControlEvents:UIControlEventValueChanged];
     [_slider addTarget:self action:@selector(didSliderTouchUpInSide:) forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchDragOutside|UIControlEventTouchDragExit];
     _slider.backgroundColor=[UIColor clearColor];
-    [_progressView addSubview:_slider];
+//    [_progressView addSubview:_slider];
+    [self addSubview:_slider];
     
     
     _timeLable=[[UILabel alloc]  init];
@@ -220,19 +224,22 @@
         make.left.mas_equalTo(_nextButton.mas_right).offset(5);
         make.width.mas_lessThanOrEqualTo(45);
     }];
+    
     [_progressView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_fullPlayTimeLable.mas_right).offset(5);
         make.right.equalTo(_timeLable.mas_left).offset(-5);
         make.centerY.mas_equalTo(weakSelf);
-        make.height.equalTo(@3);
+        make.height.equalTo(@2);
     }];
+     
     [_slider mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(_progressView);
+        make.left.right.centerY.equalTo(_progressView);
+        make.height.equalTo(@15);
     }];
     
     [_timeLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(weakSelf);
-        make.left.equalTo(_progressView.mas_right).offset(5);
+        make.left.equalTo(_slider.mas_right).offset(5);
     }];
     [_fullScreenButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_timeLable.mas_right).offset(5);
