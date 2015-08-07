@@ -284,11 +284,11 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
     }
     __weak OCVideoPlayerControlView *weakSelf=self;
     if (_delegate&&[_delegate respondsToSelector:@selector(videoPlayerControlViewSwipingWithDirection:value:handlerBlock:)]) {
-        [self.thumbView setThumbImage:nil atTime:[self.toolView playTimeStr]];
+//        [self.thumbView setThumbImage:nil atTime:[self.toolView playTimeStr]];
         [_delegate videoPlayerControlViewSwipingWithDirection:self.swipeDirection value:self.toolView.currentTime handlerBlock:^(NSDictionary *userInfo) {
             if (userInfo&&direction==OCVideoSwipeDirectionHorizontal&&!weakSelf.thumbView.hidden&&![weakSelf isWidgetViewHidden]) {
                 UIImage *thumbImage=[userInfo objectForKey:OCVidePlayerThumbnailImageKey];
-                [weakSelf.thumbView setThumbImage:thumbImage atTime:[weakSelf.toolView playTimeStr]];
+                     [weakSelf.thumbView setThumbImage:thumbImage atTime:[weakSelf.toolView playTimeStr]];
             }
         }];
     }
@@ -329,6 +329,7 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
 -(OCVideoThumbImageView *)thumbView{
     if (nil==_thumbView) {
         _thumbView=[OCVideoThumbImageView videoThumbView];
+        _thumbView.hidden=YES;
         [self addSubview:_thumbView];
         __weak OCVideoPlayerControlView *weakSelf=self;
         [_thumbView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -342,6 +343,7 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
     if (nil==_toolView) {
         _toolView=[[OCVideToolView alloc]  init];
         _toolView.userInteractionEnabled=YES;
+        
         _toolView.delegate=self;
         _toolView.controlDelegate=self;
     }
@@ -361,7 +363,7 @@ NSString * const OCVidePlayerThumbnailImageKey =@"OCVidePlayerThumbnailImageKey"
     [self updateThumbImagePosition];
     __weak OCVideoPlayerControlView *weakSelf=self;
     if (_delegate&&[_delegate respondsToSelector:@selector(videoPlayerControlViewSwipingWithDirection:value:handlerBlock:)]) {
-         [self.thumbView setThumbImage:nil atTime:[self.toolView playTimeStr]];
+//         [self.thumbView setThumbImage:nil atTime:[self.toolView playTimeStr]];
         [_delegate videoPlayerControlViewSwipingWithDirection:OCVideoSwipeDirectionHorizontal value:value handlerBlock:^(NSDictionary *userInfo) {
             if (userInfo) {
                 [weakSelf.thumbView setThumbImage:[userInfo objectForKey:OCVidePlayerThumbnailImageKey] atTime:[weakSelf.toolView playTimeStr]];

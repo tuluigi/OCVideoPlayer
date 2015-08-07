@@ -281,6 +281,7 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
     __block UIImage *thumbImage;
     AVAsset *asset = [[[weakSelf avPlayer] currentItem] asset];
     AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
+    imageGenerator.maximumSize=CGSizeMake(80.0, 80.0);
     CMTime time = CMTimeMake(currentTime, 1);
     CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
     thumbImage = [UIImage imageWithCGImage:imageRef];
@@ -496,8 +497,8 @@ NSString * const OCVideoPlayerErrorKey                          =@"OCVideoPlayer
                     dispatch_async(dispatch_get_main_queue(), ^{
                         NSDictionary *userInfo=@{OCVidePlayerThumbnailImageKey:image};
                         block(userInfo);
-                    });
-                }
+                   });
+              }
             });
         }
             break;

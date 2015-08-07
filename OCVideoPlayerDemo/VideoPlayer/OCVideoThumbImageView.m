@@ -39,6 +39,9 @@
 }
 -(void)setHidden:(BOOL)hidden{
     [super setHidden:hidden];
+    self.thumbImageView.hidden=hidden;
+    self.timeLable.hidden=hidden;
+    self.indicatorView.hidden=hidden;
     if (hidden) {
         [self setThumbImage:nil atTime:nil];
     }
